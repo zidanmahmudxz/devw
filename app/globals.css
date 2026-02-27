@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --brand: #6F1D46;
+  --brand-light: #fdf2f8;
+  --brand-dark: #4a112e;
+  --sidebar-width: 240px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'IBM Plex Sans', system-ui, sans-serif;
+  background-color: #f8f5f7;
+  color: #1a1a1a;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: #f1f1f1; }
+::-webkit-scrollbar-thumb { background: #d4c4cd; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #6F1D46; }
+
+/* Form inputs */
+.form-input {
+  @apply w-full px-3 py-2 border border-gray-200 rounded-lg text-sm bg-white
+         focus:outline-none focus:ring-2 focus:ring-[#6F1D46]/30 focus:border-[#6F1D46]
+         transition-colors placeholder:text-gray-400;
+}
+
+.form-select {
+  @apply w-full px-3 py-2 border border-gray-200 rounded-lg text-sm bg-white
+         focus:outline-none focus:ring-2 focus:ring-[#6F1D46]/30 focus:border-[#6F1D46]
+         transition-colors appearance-none;
+}
+
+.form-label {
+  @apply block text-xs font-600 text-gray-600 mb-1.5 uppercase tracking-wide;
+}
+
+/* Button styles */
+.btn-primary {
+  @apply bg-[#6F1D46] text-white px-4 py-2 rounded-lg text-sm font-medium
+         hover:bg-[#5c1739] active:bg-[#4a112e] transition-colors
+         disabled:opacity-50 disabled:cursor-not-allowed;
+}
+
+.btn-secondary {
+  @apply bg-white text-gray-700 px-4 py-2 rounded-lg text-sm font-medium
+         border border-gray-200 hover:bg-gray-50 active:bg-gray-100 transition-colors;
+}
+
+.btn-danger {
+  @apply bg-red-50 text-red-600 px-4 py-2 rounded-lg text-sm font-medium
+         border border-red-200 hover:bg-red-100 transition-colors;
+}
+
+/* Status badges */
+.badge {
+  @apply inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium;
+}
+
+.badge-pending { @apply bg-yellow-50 text-yellow-700 border border-yellow-200; }
+.badge-submitted { @apply bg-green-50 text-green-700 border border-green-200; }
+.badge-error { @apply bg-red-50 text-red-700 border border-red-200; }
+
+/* Modal overlay */
+.modal-overlay {
+  @apply fixed inset-0 bg-black/40 backdrop-blur-sm z-50 flex items-center justify-center p-4;
+}
+
+.modal-content {
+  @apply bg-white rounded-2xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-hidden flex flex-col;
+}
+
+/* Section header */
+.section-header {
+  @apply text-xs font-semibold uppercase tracking-widest text-[#6F1D46] mb-4 pb-2 border-b border-[#6F1D46]/20;
+}
+
+/* Table */
+.data-table {
+  @apply w-full text-sm;
+}
+
+.data-table th {
+  @apply text-left text-xs font-semibold uppercase tracking-wide text-gray-500
+         px-4 py-3 bg-gray-50 border-b border-gray-200;
+}
+
+.data-table td {
+  @apply px-4 py-3.5 border-b border-gray-100 text-gray-700;
+}
+
+.data-table tr:hover td {
+  @apply bg-[#fdf2f8]/50;
+}
+
+/* Animations */
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.animate-slide-in {
+  animation: slideIn 0.25s ease-out;
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 1.5s linear infinite;
+}

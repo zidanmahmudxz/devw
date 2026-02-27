@@ -1,0 +1,20 @@
+# Dependencies
+node_modules/
+.npm
+
+# Next.js
+.next/
+out/
+
+# Environment
+.env
+.env.local
+.env.production
+
+# Misc
+.DS_Store
+*.log
+npm-debug.log*
+
+# Puppeteer
+.local-chromium/
